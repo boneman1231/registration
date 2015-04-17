@@ -1,0 +1,24 @@
+{
+  "records": [{
+    "date": "2015-03-23",
+    "account": "cchungu",
+    "name":"Tim",
+    "targetId": "1",
+    "timeSlot": "1",
+    "remark": "OSGi meeting"
+  }, {
+    "date": "2015-03-23",
+    "account": "cchungu",
+    "name":"Tim",
+    "targetId": "1",
+    "timeSlot": "2",
+    "remark": "DTS meeting"
+  }, {
+    "date": "2015-03-23",
+    "account": "cchungu",
+    "name":"Tim",
+    "targetId": "2",
+    "timeSlot": "7",
+    "remark": "for test 2"
+  }]
+}

@@ -1,0 +1,46 @@
+<html>
+
+<head>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" data-semver="3.3.1" data-require="bootstrap@*" />
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" data-semver="3.3.1" data-require="bootstrap@*"></script>
+  <script data-require="angular.js@*" data-semver="1.3.14" src="https://code.angularjs.org/1.3.14/angular.js"></script>
+
+  <!-- Angular UI Bootstrap -->
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
+
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div ng-app="app">
+    <form name="saveData" action="#" ng-controller="editControler" ng-submit="submitForm()">
+      First name:
+      <br/>
+      <input type="text" name="form.firstname">
+      <br/>
+      <br/>Email Address:
+      <br/>
+      <input type="text" ng-model="form.emailaddress">
+      <br/>
+      <br/>
+      <textarea rows="3" cols="25">Describe your reason for submitting this form ...</textarea>
+      <br/>
+      <input type="radio" ng-model="form.gender" value="female" />Female ...
+      <input type="radio" ng-model="form.gender" value="male" />Male
+      <br/>
+      <br/>
+      <input type="checkbox" ng-model="form.member" value="true" />Already a member
+      <input type="checkbox" ng-model="form.member" value="false" />Not a member
+      <br/>
+      <input type="file" ng-model="form.file_profile" id="file_profile">
+      <br/>
+      <input type="file" ng-model="form.file_avatar" id="file_avatar">
+      <br/>
+      <br/>
+      <input type="submit">
+    </form>
+  </div>
+</body>
+
+</html>

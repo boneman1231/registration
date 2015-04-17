@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ng-app="MainModule">
+
+<head>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" data-semver="3.3.1" data-require="bootstrap@*" />
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" data-semver="3.3.1" data-require="bootstrap@*"></script>
+  <script data-require="angular.js@*" data-semver="1.3.14" src="https://code.angularjs.org/1.3.14/angular.js"></script>
+
+  <!-- Angular UI Bootstrap -->
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
+
+  <!-- Angular-Strap -->
+  <!--<script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.2/angular-strap.min.js"></script>-->
+  <!--<script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/2.1.2/angular-strap.tpl.min.js"></script>-->
+
+  <!-- my code -->
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+  <!-- edit temp-->
+  <!-- form name="saveData" action="#" ng-controller="editControler" ng-submit="submitForm()">
+      Account:
+      <br/>
+      <input type="text" name="form.account">
+      <br/>
+      <br/>Email Address:
+      <br/>
+      <textarea rows="3" cols="25">Purpose...</textarea>
+      <input type="submit">
+    </form -->
+  
+  <h1>Booking System!</h1>
+  <div class="header">
+    <div ng-controller="DateController">
+      <div class="row">
+        <div class="col-sm-4 col-xs-4">
+          <div class="input-group">
+            <input type="text" class="form-control" datepicker-popup="{{formatPattern}}" ng-model="targetDate" is-open="opened" ng-required="true" datepicker-options="dateOptions" />
+            <span class="input-group-btn">
+             <button type="button" class="btn btn-default" ng-click="open()">
+             <i class="glyphicon glyphicon-calendar"></i>
+             </button>
+            </span>
+          </div>
+        </div>
+        <div class="col-sm-1 col-xs-3">
+          <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+          Target Date: {{dateString()}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- test -->
+  <div id="test angular-strap" ng-controller="LayoutController">
+    <button type="button" class="btn btn-lg btn-primary" data-content="testttttttttttttttttss" data-trigger="hover" bs-popover>Popover Test
+    </button>
+  </div>
+
+  <!-- table -->
+  <div ng-controller="LayoutController as layouts">
+    <table class="table table-bordered table-condensed table-hover">
+      <caption>Schedule</caption>
+      <thead>
+        <tr>
+          <th class="col-md-2"></th>
+          <!-- json string should use ISO format: YYYY-MM-DD -->
+          <th ng-repeat="header in layouts.headers" colspan="{{header.targets.length}}">
+            {{ layouts.days[header.day] + " (" + (header.date|date:'M/d') + ")" }}
+          </th>
+        </tr>
+        <tr>
+          <th></th>
+          <th ng-repeat="subHeader in layouts.subHeaders">{{subHeader.target}}</th>
+        </tr>
+      </thead>
+      <tbody align="center">
+        <tr ng-repeat="(timeSlotId, timeSlot) in layouts.timeSlots">
+          <td>{{timeSlot}}</td>
+          <td ng-repeat="subHeader in layouts.subHeaders" ng-class="{'unavailableSlot':subHeader.timeSlots.indexOf(timeSlotId)==-1}">
+            <a popover="{{layouts.contentMap[subHeader.id+'_'+timeSlotId].remark}}" popover-trigger="mouseenter">
+              {{layouts.contentMap[subHeader.id+"_"+timeSlotId].name}}
+            </a>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</body>
+
+</html>
