@@ -1,1 +1,1 @@
-# registration
+mvn spring-boot:run
